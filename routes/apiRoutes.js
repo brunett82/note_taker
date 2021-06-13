@@ -9,7 +9,7 @@ module.exports = app => {
         resp.JSON(info);
     });
 
-    app.post("/api/notes", (req, resp) => {
+    app.post("/api/notes", (req, res) => {
         const note = req.body;
         console.log("POST - Notes Data: " + JSON.stringify(note));
         
@@ -21,7 +21,7 @@ module.exports = app => {
         fs.writeFileSync("./db/db.json", JSON.stringify(info));
         console.log("Note added.")
         
-        resp.JSON(info);
+        res.json(info);
     });
 
     app.delete("/api/notes/:id", (req, resp) => {
