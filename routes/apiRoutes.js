@@ -21,7 +21,7 @@ module.exports = app => {
         fs.writeFileSync("./db/db.json", JSON.stringify(info));
         console.log("Note added.")
         
-        report.JSON(info);
+        resp.JSON(info);
     });
 
     app.delete("/api/notes/:id", (req, resp) => {
@@ -33,6 +33,6 @@ module.exports = app => {
 
         fs.writeFileSync("./db/db.json", JSON.stringify(newInfo));
 
-        response.json(newInfo);
+        resp.json(newInfo);
     });
 };
