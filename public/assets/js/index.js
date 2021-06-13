@@ -26,7 +26,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () => {
-  return $.ajax({
+  return ajax({
     url: "/api/notes",
     method: "get",
   });
@@ -34,7 +34,7 @@ const getNotes = () => {
   
 
 const saveNote = (note) => {
-  return $.ajax({
+  return ajax({
     url: "/api/notes",
     data: note,
     method: "POST",
@@ -42,7 +42,7 @@ const saveNote = (note) => {
 };
 
 const deleteNote = (id) => {
-  return $.ajax({
+  return ajax({
     url: "api/notes/" + id, 
     method: "DELETE",
   });
