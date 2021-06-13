@@ -1,3 +1,4 @@
+const JSON = require('express');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
@@ -9,19 +10,19 @@ module.exports = app => {
         resp.JSON(info);
     });
 
-    app.post("/api/notes", (req, res) => {
-        const note = req.body;
-        console.log("POST - Notes Data: " + JSON.stringify(note));
+    app.post("/api/notes", function (req, res) {
         
-        note.id = uuidv4();
-
-        let info = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-        info.push(note);
+        const info = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+        const notes = req.body;
+                
+        notes.id = uuidv4(); 
+        
+        info.push(notes);
         
         fs.writeFileSync("./db/db.json", JSON.stringify(info));
         console.log("Note added.")
         
-        res.json(info);
+        res.JSON(info);
     });
 
     app.delete("/api/notes/:id", (req, resp) => {
