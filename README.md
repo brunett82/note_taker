@@ -6,7 +6,7 @@ A note taking app using Express.js on the back end to enable saving and retrieva
 
 # Screenshot
 
-![Getting Started](note_taker/public/assets/note_taker.png)
+![Getting Started](/public/assets/note_taker.png)
 
 
 
